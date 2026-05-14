@@ -5,7 +5,7 @@ import { TypeAnimation } from 'react-type-animation'
 import * as THREE from 'three'
 
 const laptopModel = '/models/modern_slim_laptop.glb'
-const arduinoModel = '/models/arduino_uno_q.glb'
+const arduinoModel = '/models/microchip.glb'
 const duckModel = '/models/free_rubber_duck_3d_model.glb'
 const sketchPadModel = '/models/sketchbook.glb'
 
