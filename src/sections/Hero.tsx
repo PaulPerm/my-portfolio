@@ -2,6 +2,7 @@ import { useRef, Suspense, useEffect, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { useGLTF, Environment } from '@react-three/drei'
 import { TypeAnimation } from 'react-type-animation'
+import { useTheme } from '../context/ThemeContext'
 import * as THREE from 'three'
 
 const laptopModel = '/models/modern_slim_laptop.glb'
@@ -102,6 +103,8 @@ function Hero() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 })
   const targetMouse = useRef({ x: 0, y: 0 })
   const currentMouse = useRef({ x: 0, y: 0 })
+  const { theme } = useTheme()
+  const isDark = theme === 'dark'
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -144,7 +147,7 @@ function Hero() {
           fontFamily: 'var(--font-heading)',
           fontSize: 'clamp(48px, 7vw, 96px)',
           fontWeight: 900,
-          color: '#fff',
+          color: isDark ? '#fff' : '#1a1a18',
           lineHeight: 1,
           letterSpacing: '-0.02em',
         }}>
@@ -171,10 +174,10 @@ function Hero() {
           fontFamily: 'var(--font-heading)',
           fontSize: 'clamp(18px, 2.5vw, 28px)',
           fontWeight: 700,
-          color: '#fff',
+          color: isDark ? '#fff' : '#1a1a18',
           letterSpacing: '0.02em',
         }}>
-          <span style={{ color: '#fff', opacity: 0.85,}}>I am a</span>
+          <span style={{ opacity: 0.85 }}>I am a</span>
           <TypeAnimation
             sequence={[
               'learner', 1400,
@@ -183,8 +186,7 @@ function Hero() {
             ]}
             repeat={Infinity}
             style={{
-              color: '#fff',
-              opacity: 0.85,
+              
               minWidth: '180px',
               display: 'inline-block',
             }}
@@ -192,29 +194,37 @@ function Hero() {
         </div>
 
         <div style={{ display: 'flex', gap: '12px', marginTop: '32px' }}>
-          <a href="#projects" style={{
+          <a href="#projects" className="glass-btn" style={{
             fontFamily: 'var(--font-heading)',
             fontWeight: 700,
             fontSize: '13px',
-            color: 'var(--bg)',
-            background: 'var(--accent)',
+            color: isDark ? '#fff' : '#1a1a18',
+            background: 'rgba(92, 122, 94, 0.15)',
+            border: '0.5px solid rgba(255, 255, 255, 0.5)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(255,255,255,0.1)',
             padding: '10px 24px',
             borderRadius: '24px',
             textDecoration: 'none',
             letterSpacing: '0.04em',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
           }}>
-            View my work
+            View my Work
           </a>
-          <a href="#contact" style={{
+          <a href="#contact" className="glass-btn" style={{
             fontFamily: 'var(--font-body)',
             fontSize: '14px',
-            color: 'var(--sand)',
-            border: '0.5px solid var(--sand)',
+            color: isDark? 'rgba(255, 240, 220, 0.95)' : '#1a1a18',
+            background: 'rgba(212, 184, 150, 0.1)',
+            border: '0.5px solid rgba(255, 255, 255, 0.5)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(255,255,255,0.1)',
             padding: '10px 24px',
             borderRadius: '24px',
             textDecoration: 'none',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
           }}>
-            Get in touch
+            Get in Touch
           </a>
         </div>
       </div>

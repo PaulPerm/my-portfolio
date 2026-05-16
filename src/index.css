@@ -39,3 +39,60 @@ html {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+.glass-btn {
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+.glass-btn:hover::before {
+  left: 150%;
+}
+:root {
+  --bg: #0a0a0a;
+  --surface: #161614;
+  --accent: #5c7a5e;
+  --highlight: #8aaa8c;
+  --sand: #c4a882;
+  --moss: #c8ca9a;
+  --glass: rgba(255, 255, 255, 0.08);
+  --font-heading: 'Exo 2', sans-serif;
+  --font-body: 'Alegreya Sans', serif;
+}
+
+[data-theme='light'] {
+  --bg: #ccc8be;
+  --surface: #bab6ac;
+  --accent: #3d5e3f;
+  --highlight: #5c7a5e;
+  --sand: #7a6248;
+  --moss: #8a8c6a;
+  --glass: rgba(92, 122, 94, 0.12);
+}
+
+body {
+  background: var(--bg);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s ease, color 0.3s ease;
+}
