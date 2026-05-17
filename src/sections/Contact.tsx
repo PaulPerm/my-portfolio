@@ -47,86 +47,94 @@ function Contact() {
     width: '100%',
   }
 
-  return (
-    <section id="contact" style={{ padding: '120px 80px' }}>
-      <p style={{ fontFamily: 'var(--font-heading)', fontSize: '12px', color: 'var(--accent)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>Contact</p>
-      <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(32px, 4vw, 56px)', fontWeight: 900, color: isDark ? '#fff' : '#1a1a18', lineHeight: 1.1, marginBottom: '16px' }}>Let's work together</h2>
-      <p style={{ fontFamily: 'var(--font-body)', fontSize: '18px', color: isDark ? '#fff' : '#1a1a18', opacity: 0.6, lineHeight: 1.8, marginBottom: '48px', maxWidth: '480px' }}>
-        Have a project in mind or just want to say hi? My inbox is always open.
+ return (
+    <section id="contact" style={{ padding: '120px 80px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <p style={{ fontFamily: 'var(--font-heading)', fontSize: '12px', color: 'var(--accent)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px', alignSelf: 'center' }}>Contact</p>
+      <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(32px, 4vw, 56px)', fontWeight: 900, color: isDark ? '#fff' : '#1a1a18', lineHeight: 1.1, marginBottom: '16px', textAlign: 'center' }}>Let's work together</h2>
+      <p style={{ fontFamily: 'var(--font-body)', fontSize: '18px', color: isDark ? '#fff' : '#1a1a18', opacity: 0.6, lineHeight: 1.8, marginBottom: '48px', maxWidth: '480px', textAlign: 'center' }}>
+        Have a project in mind or just want to say hello? <br /> My inbox is always open.
       </p>
 
-      <div style={{ display: 'flex', gap: '80px', alignItems: 'flex-start' }}>
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <div style={{ display: 'flex', gap: '16px' }}>
-            <input
-              name="name"
-              placeholder="Your name"
-              value={form.name}
-              onChange={handleChange}
-              style={inputStyle}
-            />
-            <input
-              name="email"
-              placeholder="Your email"
-              value={form.email}
-              onChange={handleChange}
-              style={inputStyle}
-            />
-          </div>
-          <textarea
-            name="message"
-            placeholder="Your message"
-            rows={5}
-            value={form.message}
-            onChange={handleChange}
-            style={{ ...inputStyle, resize: 'none' }}
-          />
-          <button
-            onClick={handleSubmit}
-            disabled={status === 'sending' || status === 'sent'}
-            className="glass-btn"
-            style={{
-              alignSelf: 'flex-start',
-              background: status === 'sent' ? 'rgba(92,122,94,0.3)' : 'rgba(92, 122, 94, 0.15)',
-              border: '0.5px solid rgba(255,255,255,0.2)',
-              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.15)',
-              color: isDark ? '#fff' : '#1a1a18',
-              fontFamily: 'var(--font-heading)',
-              fontWeight: 700,
-              fontSize: '13px',
-              padding: '12px 28px',
-              borderRadius: '24px',
-              cursor: status === 'sent' ? 'default' : 'pointer',
-              letterSpacing: '0.04em',
-            }}
-          >
-            {status === 'idle' && 'Send message'}
-            {status === 'sending' && 'Sending...'}
-            {status === 'sent' && 'Message sent!'}
-            {status === 'error' && 'Something went wrong — try again'}
-          </button>
-        </div>
+      <div style={{
+        width: '100%', 
+        maxWidth: '560px',
+        background: 'var(--surface)',
+        border: '0.5px solid rgba(255,255,255,0.1)',
+        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08)',
+        borderRadius: '24px',
+        padding: '40px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '16px',
+      }}>
+        <input
+          name="name"
+          placeholder="Your name"
+          value={form.name}
+          onChange={handleChange}
+          style={inputStyle}
+        />
+        <input
+          name="email"
+          placeholder="Your email"
+          value={form.email}
+          onChange={handleChange}
+          style={inputStyle}
+        />
+        <textarea
+          name="message"
+          placeholder="Your message"
+          rows={5}
+          value={form.message}
+          onChange={handleChange}
+          style={{ ...inputStyle, resize: 'none' }}
+        />
+        <button
+          onClick={handleSubmit}
+          disabled={status === 'sending' || status === 'sent'}
+          className="glass-btn"
+          style={{
+            alignSelf: 'center',
+            width: '100%',
+            background: status === 'sent' ? 'rgba(92,122,94,0.3)' : 'rgba(92, 122, 94, 0.15)',
+            border: '0.5px solid rgba(255,255,255,0.2)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.15)',
+            color: isDark ? '#fff' : '#1a1a18',
+            fontFamily: 'var(--font-heading)',
+            fontWeight: 700,
+            fontSize: '13px',
+            padding: '12px 28px',
+            borderRadius: '24px',
+            cursor: status === 'sent' ? 'default' : 'pointer',
+            letterSpacing: '0.04em',
+          }}
+        >
+          {status === 'idle' && 'Send message'}
+          {status === 'sending' && 'Sending...'}
+          {status === 'sent' && 'Message sent!'}
+          {status === 'error' && 'Something went wrong — try again'}
+        </button>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', paddingTop: '8px' }}>
-          <a href="mailto:paulpermyashkin17@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', color: isDark ? '#fff' : '#1a1a18', opacity: 0.7, fontFamily: 'var(--font-body)', fontSize: '15px' }}
+        <div style={{ borderTop: '0.5px solid rgba(255,255,255,0.08)', paddingTop: '24px', display: 'flex', justifyContent: 'center', gap: '32px' }}>
+          <a href="mailto:paulpermyashkin17@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: isDark ? '#fff' : '#1a1a18', opacity: 0.7, fontFamily: 'var(--font-body)', fontSize: '14px' }}
             onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
             onMouseLeave={e => (e.currentTarget.style.opacity = '0.7')}
           >
-            <MailIcon size={18} color="var(--sand)" />
-            paulpermyashkin17@gmail.com
+            <MailIcon size={16} color="var(--sand)" />
+            Email
           </a>
-          <a href="https://github.com/PaulPerm" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', color: isDark ? '#fff' : '#1a1a18', opacity: 0.7, fontFamily: 'var(--font-body)', fontSize: '15px' }}
+          <a href="https://github.com/PaulPerm" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: isDark ? '#fff' : '#1a1a18', opacity: 0.7, fontFamily: 'var(--font-body)', fontSize: '14px' }}
             onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
             onMouseLeave={e => (e.currentTarget.style.opacity = '0.7')}
           >
-            <SiGithub size={18} color={isDark ? '#fff' : '#1a1a18'} />
-            github.com/PaulPerm
+            <SiGithub size={16} color={isDark ? '#fff' : '#1a1a18'} />
+            GitHub
           </a>
-          <a href="https://www.linkedin.com/in/paul-permyashkin-3760343b9/" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', color: isDark ? '#fff' : '#1a1a18', opacity: 0.7, fontFamily: 'var(--font-body)', fontSize: '15px' }}
+          <a href="https://www.linkedin.com/in/paul-permyashkin-3760343b9/" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: isDark ? '#fff' : '#1a1a18', opacity: 0.7, fontFamily: 'var(--font-body)', fontSize: '14px' }}
             onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
             onMouseLeave={e => (e.currentTarget.style.opacity = '0.7')}
           >
-            <FaLinkedin size={18} color="#0A66C2" />
+            <FaLinkedin size={16} color="#0A66C2" />
             LinkedIn
           </a>
         </div>
