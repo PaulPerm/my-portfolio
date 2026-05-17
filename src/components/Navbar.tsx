@@ -24,15 +24,15 @@ function Navbar() {
      
     }}>
 
-      <span style={{
-        fontFamily: 'var(--font-heading)',
-        fontWeight: 900,
-        fontSize: '18px',
-        color: 'var(--highlight)',
-        letterSpacing: '0.02em',
-      }}>
-        PP
-      </span>
+      <img 
+        src="/signature (1).png" 
+        alt="Paul Permyashkin" 
+        style={{ 
+          height: '64px',
+          filter: isDark ? 'none' : 'invert(1)',
+          opacity: 0.9,
+        }} 
+      />
 
       <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
         {links.map((link) => (
