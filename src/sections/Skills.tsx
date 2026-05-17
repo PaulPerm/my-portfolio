@@ -62,7 +62,7 @@ function Skills() {
                     y: -4,
                     scale: 1.05,
                     boxShadow: `0 0 24px ${skill.color}40, 0 0 8px ${skill.color}20`,
-                    borderColor: `${skill.color}60`,
+                    borderColor: `${skill.color}60`
                   }}
                   className="glass-btn"
                   style={{

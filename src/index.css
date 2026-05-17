@@ -23,6 +23,7 @@ body {
   font-size: 16px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -79,7 +80,7 @@ html {
 
 [data-theme='light'] {
   --bg: #ccc8be;
-  --surface: #bab6ac;
+  --surface: rgba(255, 255, 255, 0.35);
   --accent: #3d5e3f;
   --highlight: #5c7a5e;
   --sand: #7a6248;
