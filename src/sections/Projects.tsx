@@ -2,16 +2,28 @@ import { useTheme } from '../context/ThemeContext'
 
 const projects = [
   {
+    title: "Myodex",
+    desc: "Interactive 3D muscle map. Click any muscle on the model to see its function and the exercises that target it. With workout generation, logging and user accounts soon to come!",
+    tags: ["React", "TypeScript", "Three.js", "FastAPI", "PostgreSQL", "Docker"],
+    link: "https://myodex.vercel.app",
+    github: "https://github.com/PaulPerm/myodex",
+  },
+  {
+    title: "ESP32 Environmental Monitor",
+    desc: "ESP32-C6 desk monitor that tracks air quality, temperature, and humidity on an LCD with RGB status alerts. An IMU flips the UI with device orientation and starts a Pomodoro timer on tilt. Bypassed unreliable sensor libraries with raw I2C register reads.",
+    tags: ["ESP32-C6", "C++", "Arduino", "I2C", "BMI160", "ENS160/AHT21"],
+  },
+  {
     title: 'Geneva Auto',
     desc: 'A full-stack web application using Flask and MySQL to manage vehicle inventory and sales. Features role-based access control, dynamic UI rendering, and secure transaction workflows.',
     tags: ['Python', 'Flask', 'MySQL', 'Jinja2'],
-    link: '#',
+    link: 'Private Repo',
   },
   {
     title: 'DegreeFlow',
     desc: 'A student degree tracking web application built with Vue.js and TypeScript. Fetches and displays real student data from a REST API hosted on AWS.',
     tags: ['Vue.js', 'TypeScript', 'Axios', 'AWS'],
-    link: '#',
+    link: 'Private Repo',
   },
   {
     title: 'Project Three',
