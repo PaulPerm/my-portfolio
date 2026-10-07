@@ -1,25 +1,46 @@
+import { SiPython, SiJavascript, SiTypescript, SiMysql, SiHtml5, SiCss, SiReact, SiVuedotjs, SiFlask, SiTailwindcss, SiGit, SiCplusplus, SiFastapi, SiNodedotjs, SiPinia, SiGithub, SiDocker, SiLinux, SiVercel, SiRailway, SiEspressif, SiArduino } from 'react-icons/si'
+import { VscCode, VscCloud } from 'react-icons/vsc'
+import { DiJava } from 'react-icons/di'
+import { TbBrandCSharp } from 'react-icons/tb'
+import { CircuitBoard, Cable } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext'
 import { motion } from 'framer-motion'
-import { SiPython, SiJavascript, SiTypescript, SiMysql, SiHtml5, SiCss, SiReact, SiVuedotjs, SiFlask, SiTailwindcss, SiGit } from 'react-icons/si'
-import { VscCode, VscCloud } from 'react-icons/vsc'
+
 
 const skills = [
   { name: 'Python', icon: SiPython, category: 'Languages', color: '#3776ab' },
   { name: 'JavaScript', icon: SiJavascript, category: 'Languages', color: '#f7df1e' },
   { name: 'TypeScript', icon: SiTypescript, category: 'Languages', color: '#3178c6' },
+  { name: 'Java', icon: DiJava, category: 'Languages', color: '#e76f00' },
+  { name: 'C++', icon: SiCplusplus, category: 'Languages', color: '#00599c' },
+  { name: 'C#', icon: TbBrandCSharp, category: 'Languages', color: '#9b4f96' },
   { name: 'SQL', icon: SiMysql, category: 'Languages', color: '#4479a1' },
   { name: 'HTML', icon: SiHtml5, category: 'Languages', color: '#e34f26' },
   { name: 'CSS', icon: SiCss, category: 'Languages', color: '#1572b6' },
   { name: 'React', icon: SiReact, category: 'Frameworks', color: '#61dafb' },
   { name: 'Vue.js', icon: SiVuedotjs, category: 'Frameworks', color: '#42b883' },
+  { name: 'FastAPI', icon: SiFastapi, category: 'Frameworks', color: '#009688' },
   { name: 'Flask', icon: SiFlask, category: 'Frameworks', color: '#ffffff' },
+  { name: 'Node.js', icon: SiNodedotjs, category: 'Frameworks', color: '#5fa04e' },
   { name: 'Tailwind CSS', icon: SiTailwindcss, category: 'Frameworks', color: '#38bdf8' },
-  { name: 'Git', icon: SiGit, category: 'Tools', color: '#f05032' },
-  { name: 'VS Code', icon: VscCode, category: 'Tools', color: '#007acc' },
-  { name: 'AWS', icon: VscCloud, category: 'Tools', color: '#ff9900' },
+  { name: 'Pinia', icon: SiPinia, category: 'Frameworks', color: '#ffd859' },
+  { name: 'Git', icon: SiGit, category: 'Tools & Cloud', color: '#f05032' },
+  { name: 'GitHub', icon: SiGithub, category: 'Tools & Cloud', color: '#ffffff' },
+  { name: 'VS Code', icon: VscCode, category: 'Tools & Cloud', color: '#007acc' },
+  { name: 'Docker', icon: SiDocker, category: 'Tools & Cloud', color: '#2496ed' },
+  { name: 'AWS', icon: VscCloud, category: 'Tools & Cloud', color: '#ff9900' },
+  { name: 'Linux', icon: SiLinux, category: 'Tools & Cloud', color: '#fcc624' },
+  { name: 'Vercel', icon: SiVercel, category: 'Tools & Cloud', color: '#ffffff' },
+  { name: 'Railway', icon: SiRailway, category: 'Tools & Cloud', color: '#ffffff' },
+  { name: 'ESP32', icon: SiEspressif, category: 'Embedded & Hardware', color: '#e7352c' },
+  { name: 'Arduino', icon: SiArduino, category: 'Embedded & Hardware', color: '#00878f' },
+  { name: 'Embedded C++', icon: SiCplusplus, category: 'Embedded & Hardware', color: '#00599c' },
+  { name: 'I2C', icon: CircuitBoard, category: 'Embedded & Hardware', color: '#8aaa8c' },
+  { name: 'Serial', icon: Cable, category: 'Embedded & Hardware', color: '#8aaa8c' },
 ]
 
-const categories = ['Languages', 'Frameworks', 'Tools']
+const categories = ['Languages', 'Frameworks', 'Tools & Cloud', 'Embedded & Hardware']
+
 
 function Skills() {
   const { theme } = useTheme()
@@ -27,7 +48,7 @@ function Skills() {
 
   return (
     <section id="skills" style={{ padding: '120px 80px' }}>
-      <p style={{ fontFamily: 'var(--font-heading)', fontSize: '12px', color: 'var(--accent)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>Skills</p>
+      {/* <p style={{ fontFamily: 'var(--font-heading)', fontSize: '12px', color: 'var(--accent)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>Skills</p> */}
       <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(32px, 4vw, 56px)', fontWeight: 900, color: isDark ? '#fff' : '#1a1a18', lineHeight: 1.1, marginBottom: '64px' }}>What I work with</h2>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '56px' }}>
@@ -40,9 +61,9 @@ function Skills() {
               transition={{ duration: 0.4 }}
               style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: '11px',
+                fontSize: '14px',
                 fontWeight: 700,
-                color: 'var(--accent)',
+                color: isDark ? '#fff' : '#1a1a18',
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
                 marginBottom: '20px',
